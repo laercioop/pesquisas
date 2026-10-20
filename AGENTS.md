@@ -6,11 +6,11 @@ Orientações para agentes de código (Claude Code, Codex, Gemini CLI etc.) que 
 
 Agregador das pesquisas da eleição presidencial de 2026 (Lula x Flávio Bolsonaro). O projeto calibra o erro das pesquisas no 1º turno (04/10/2026) contra o resultado do TSE e aplica parte desse erro ao agregado do 2º turno (25/10/2026). O resultado são **cenários condicionais**, não probabilidades de vitória. A documentação técnica completa (fórmulas, fontes e limitações) está em `codigos/LEIA-ME.md`, e o resumo dos resultados para leitura está em `resultado.md`.
 
-Python 3.9 (Anaconda); não há testes nem lint.
+Python 3.9 (Anaconda); não há testes nem lint. O usuário escreve em português, e textos, nomes e gráficos seguem em português.
 
 ## Versionamento (git)
 
-Esta pasta (`P:\temp\...\agregador de pesquisas`) é a área de **experimentos**. A versão oficial fica em `P:\Atualização\Modelos\Política\Pesquisas Eleitorais`, que é o remote `main` deste repositório (com `receive.denyCurrentBranch=updateInstead`, então o push já atualiza os arquivos de lá). Para experimentos, use branches aqui. O que for aprovado entra na branch `main` e vai para a pasta oficial com `git push main main`. Não edite arquivos direto na pasta oficial: com alterações não commitadas lá, o push é recusado. O usuário escreve em português, e textos, nomes e gráficos seguem em português.
+O projeto é versionado com git nesta pasta (`P:\Atualização\Modelos\Política\Pesquisas Eleitorais`), sem remote. A branch principal é `main`. Para experimentos, crie uma branch e faça o merge na `main` quando o resultado for aprovado.
 
 ## Comandos (rodar de dentro de `codigos/`)
 
