@@ -1,6 +1,7 @@
 """Transcrição rastreável das pesquisas nacionais da eleição presidencial de 2026.
 Catálogo: https://e26.cog.ia.br/eleicoes/pesquisas?cargo=presidente
 Revisão de 16/10/2026: conferência com E26, Poder360, CNN e Brasil de Fato; +1 pesquisa (Futura BR-03764).
+Revisão de 20/10/2026: +9 pesquisas do 2º turno divulgadas de 16 a 20/10 (agregado Poder360 e Gazeta do Povo).
 Histórico suplementar: Agregador eleitoral 2026.pdf, enviado pelo usuário.
 Valores são percentuais divulgados, não extrapolações do autor deste arquivo.
 """
@@ -60,7 +61,7 @@ Palver|2026-09-30|2026-10-03|5000|43|47|BR-00198/2026|totais|||online
 Datafolha|2026-10-03|2026-10-03|4006|42|40|BR-01708/2026|totais|4|3|presencial
 Quaest|2026-10-02|2026-10-03|3702|40|38|BR-02197/2026|totais|10|3|presencial
 '''
-# Segundo turno: pesquisas do acervo público e novas divulgações até 16/10.
+# Segundo turno: pesquisas do acervo público e novas divulgações até 20/10.
 # Evita linhas duplicadas com a mesma combinação instituto/registro, inclusive revisões do chat.
 # método poderá ser desconhecido; não se infere precisão estatística da amostra digital.
 DATA_2T='''
@@ -93,6 +94,15 @@ Palver|2026-10-10|2026-10-14|5000|49|50|BR-08028/2026|totais|1|0|online
 PoderData|2026-10-13|2026-10-15|3000|50|50|BR-04258/2026|validos|||telefone
 MDA|2026-10-13|2026-10-15|2014|49.5|50.5|BR-00652/2026|validos|||presencial
 Futura|2026-10-14|2026-10-15|2000|47.5|49|BR-03764/2026|totais|3.6||telefone
+Gerp|2026-10-14|2026-10-16|2400|45|50|BR-05187/2026|totais|2|3|telefone
+Ipespe|2026-10-13|2026-10-15|1500|48.8|51.2|BR-00223/2026|validos|||telefone
+Vox Brasil|2026-10-15|2026-10-17|2100|51|49|BR-04332/2026|validos|||presencial
+AtlasIntel|2026-10-13|2026-10-18|4998|48.9|51.1|BR-02418/2026|validos|||online
+PoderData|2026-10-16|2026-10-18|3000|48|52|BR-02586/2026|validos|||telefone
+Nexus|2026-10-16|2026-10-18|2002|49.7|50.3|BR-04499/2026|validos|||telefone
+Futura|2026-10-16|2026-10-17|2000|49.6|50.4|BR-06715/2026|validos|||telefone
+DataTrends|2026-10-15|2026-10-17|2000|48.5|51.5|BR-04454/2026|validos|||nao_informado
+Real Time Big Data|2026-10-15|2026-10-19|2000|48|52|BR-02952/2026|validos|||telefone
 '''
 
 def number(s): return float(s) if s.strip() else ''
@@ -119,7 +129,11 @@ DIVULGACAO_2T={'BR-08134/2026':'2026-10-08','BR-02949/2026':'2026-10-08','BR-096
   'BR-00650/2026':'2026-10-13','BR-07877/2026':'2026-10-13','BR-07997/2026':'2026-10-13',
   'BR-01209/2026':'2026-10-13','BR-08729/2026':'2026-10-14','BR-04629/2026':'2026-10-15',
   'BR-00466/2026':'2026-10-15','BR-08028/2026':'2026-10-15','BR-04258/2026':'2026-10-16',
-  'BR-00652/2026':'2026-10-16','BR-03764/2026':'2026-10-16'}
+  'BR-00652/2026':'2026-10-16','BR-03764/2026':'2026-10-16',
+  # Revisão de 20/10/2026 (Poder360 "a 7/6/5 dias", Gazeta do Povo).
+  'BR-05187/2026':'2026-10-16','BR-00223/2026':'2026-10-17','BR-04332/2026':'2026-10-18',
+  'BR-02418/2026':'2026-10-19','BR-02586/2026':'2026-10-19','BR-04499/2026':'2026-10-19',
+  'BR-06715/2026':'2026-10-19','BR-04454/2026':'2026-10-20','BR-02952/2026':'2026-10-20'}
 for r in rows:
   if r['turno']=='2': r['data_divulgacao']=DIVULGACAO_2T.get(r['registro_tse'],'')
 assert len(set((r['turno'],r['instituto'],r['registro_tse'],r['fim_campo']) for r in rows))==len(rows)
@@ -148,6 +162,16 @@ for r in rows:
     r['observacao']='Fim do campo corrigido de 07/10 para 08/10 (revisão de 16/10).'
   if r['turno']=='2' and r['registro_tse']=='BR-00466/2026':
     r['observacao']='Poder360 informa campo 13-14/10; cadastro no catálogo E26 indica até 15/10.'
+  P360='https://www.poder360.com.br/poder-pesquisas/saiba-como-estao-lula-e-flavio-nas-pesquisas-a-5-dias-da-eleicao/'
+  if r['turno']=='2' and r['registro_tse']=='BR-05187/2026':
+    r['fonte']='https://www.gazetadopovo.com.br/eleicoes/2026/pesquisa-eleitoral-2026/gerp-presidente-outubro-2026-segundo-turno-2/'
+    r['observacao']='Incluída em 20/10. BN = "nenhum deles" (2%); válidos publicados 52% Flávio x 48% Lula.'
+  if r['turno']=='2' and r['registro_tse'] in ('BR-00223/2026','BR-04332/2026','BR-02418/2026','BR-04499/2026','BR-06715/2026','BR-04454/2026','BR-02952/2026'):
+    r['fonte']=P360
+    r['observacao']='Incluída em 20/10 com os válidos do agregado Poder360; totais não conferidos. Divulgação aproximada pela 1ª edição do agregado em que aparece.'
+  if r['turno']=='2' and r['registro_tse']=='BR-02586/2026':
+    r['fonte']='https://www.poder360.com.br/poderdata/pesquisa-poderdata-aya-leia-os-resultados-de-lula-e-flavio-no-2o-turno-19out2026/'
+    r['observacao']='Incluída em 20/10. Válidos publicados; telefone (fixo e celular).'
   if r['turno']=='2' and r['registro_tse']=='BR-04258/2026':
     r['fonte']='https://www.poder360.com.br/poderdata/pesquisa-poderdata-aya-leia-resultados-de-lula-e-flavio-no-2o-turno/'
 fields=['turno','instituto','inicio_campo','fim_campo','data_divulgacao','amostra','lula_reportado_pct','flavio_reportado_pct','registro_tse','base_original','brancos_nulos_pct','indecisos_pct','metodo','fonte','observacao']

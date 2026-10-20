@@ -1,24 +1,31 @@
 # Agregador Eleitoral 2026 — resultado
 
-**Recorte:** 16/10/2026 · **Unidade:** % dos votos válidos · 2º turno em 25/10/2026
+**Recorte:** 20/10/2026 · **Unidade:** % dos votos válidos · 2º turno em 25/10/2026 ·
+**Versão interativa:** [`agregador.html`](agregador.html)
 
 ## Resumo
 
-Com base em **13 institutos** e na rodada mais recente de cada um, o 2º turno está assim:
+Com base em **14 institutos** e na rodada mais recente de cada um, o 2º turno está assim:
 
 | Cenário | Flávio | Lula | Margem |
 |---|---|---|---|
-| Pesquisas como publicadas (alfa 0) | **51,3%** | **48,7%** | +2,6 pp |
-| Central: repete metade do erro do 1º turno (alfa 0,5) | **52,1%** | **47,9%** | +4,3 pp |
-| Repete todo o erro do 1º turno (alfa 1) | **53,0%** | **47,0%** | +6,0 pp |
+| Pesquisas como publicadas (alfa 0) | **51,0%** | **49,0%** | +2,1 pp |
+| Central: repete metade do erro do 1º turno (alfa 0,5) | **51,9%** | **48,1%** | +3,8 pp |
+| Repete todo o erro do 1º turno (alfa 1) | **52,7%** | **47,3%** | +5,5 pp |
 
 No 1º turno (04/10), as pesquisas subestimaram Flávio em **3,4 pp na margem** (média ponderada
 da última rodada de cada instituto; Flávio teve 47,03% e Lula 45,16% nas urnas). O modelo pergunta
 quanto desse erro se repete no 2º turno. Isso é uma **hipótese**, não uma probabilidade de vitória.
 
-A disputa está **se estreitando**. As rodadas divulgadas em 15 e 16/10 (PoderData 50×50, MDA
-50,5×49,5, Futura 50,8×49,2, Palver 50,5×49,5) estão mais apertadas que as da semana anterior.
-Com o recorte de ontem (15/10), o cenário central dava Flávio 52,4%; hoje dá 52,1%.
+**Atualização de 20/10.** Entraram 9 pesquisas divulgadas entre 16 e 20/10: Gerp (52×48 nos válidos),
+Ipespe (51,2×48,8), Vox Brasil (49×51, a única com Lula à frente), AtlasIntel (51,1×48,9), PoderData
+(52×48), Nexus (50,3×49,7), Futura (50,4×49,6), DataTrends (51,5×48,5) e Real Time Big Data (52×48).
+A tendência, que vinha convergindo para 50×50, parou de cair: Flávio 51,2 × Lula 48,8 em 19/10, ou
+52,9 × 47,1 somando metade do erro médio do 1º turno. O cenário central do modelo foi de 52,1% (16/10)
+para 51,9%. Os válidos de sete delas vêm do agregado do Poder360 (totais não conferidos) e a data de
+divulgação de algumas é aproximada; ver `observacao` no CSV.
+
+Os gráficos em PNG abaixo são o retrato de 16/10. Os números atualizados estão em `agregador.html`.
 
 ## O que foi feito
 
@@ -110,4 +117,5 @@ cd codigos
 python modelo_vies.py      # recalcula dados/resultados/
 python graficos.py         # regenera graficos/ e sensibilidade.csv
 python graficos_ps.py      # gráficos 2 e 8 no estilo P&S
+python gerar_html.py       # agregador.html (interativo)
 ```

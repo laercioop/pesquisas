@@ -34,7 +34,7 @@ Python 3; `graficos.py` precisa de matplotlib. Dentro de `codigos/`:
 
 ```bash
 python construir_base.py          # só se alterar a transcrição; regrava o CSV bruto
-python modelo_vies.py             # padrão: --as-of 2026-10-16 --alpha 0.5 --shrink 0.25
+python modelo_vies.py             # padrão: --as-of 2026-10-20 --alpha 0.5 --shrink 0.25
 python graficos.py                # PNGs em ../graficos e sensibilidade.csv
 ```
 
@@ -50,7 +50,7 @@ python modelo_vies.py --as-of 2026-10-15     # recorte por data de DIVULGAÇÃO 
 
 Os scripts regravam os arquivos de `dados/resultados/` e não alteram o CSV bruto
 (exceto `construir_base.py`, que o gera). Para incluir pesquisas novas, acrescente
-a linha em `construir_base.py` (ou direto no CSV) e rode os três scripts.
+a linha em `construir_base.py` (ou direto no CSV) e rode os scripts (`construir_base.py`, `modelo_vies.py`, `gerar_html.py`).
 
 **Excel:** é um retrato estático. `Painel!B7` (alfa) recalcula B11, B13 e B14
 (agregado com viés); a aba `Cenarios` usa alfas fixos e não depende de B7. As
@@ -92,13 +92,13 @@ Atlas com entrevistas iniciadas antes da eleição recebe desconto de
 amostra mista temporal. Percentuais de dois candidatos são normalizados para
 somarem 100%.
 
-## Principais resultados (16/10/2026, após revisão da base)
+## Principais resultados (20/10/2026, com 9 pesquisas novas de 16 a 20/10)
 
 - Calibração: 13 institutos; erro comum ponderado de **+3,37 pp na margem** (média simples +3,45 pp).
-- Segundo turno, sem transferir erro (`alpha=0`): **Flávio 51,31% × Lula 48,69%**.
-- Metade do erro (`alpha=0.5`): **Flávio 52,14% × Lula 47,86%**.
-- Erro integral (`alpha=1`): **Flávio 52,98% × Lula 47,02%**.
-- Estes são **cenários condicionais**, não probabilidades de vitória. Ver `resultado.md` na raiz.
+- Segundo turno, 14 institutos, sem transferir erro (`alpha=0`): **Flávio 51,04% × Lula 48,96%**.
+- Metade do erro (`alpha=0.5`): **Flávio 51,89% × Lula 48,11%**.
+- Erro integral (`alpha=1`): **Flávio 52,73% × Lula 47,27%**.
+- Estes são **cenários condicionais**, não probabilidades de vitória. Ver `resultado.md` e `agregador.html` na raiz.
 
 ## Proveniência e limitações
 

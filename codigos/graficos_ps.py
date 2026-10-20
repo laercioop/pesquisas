@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Gráficos finais 1 e 2 no estilo P&S (template.py).
 
-Uso: python graficos_ps.py [--as-of 2026-10-16]
+Uso: python graficos_ps.py [--as-of 2026-10-20]
 Gera, na raiz de graficos/, 1_erro_por_instituto_1t.png e 2_tendencia_2t_todas.png, e em
 graficos/svg/ os mesmos em SVG, em português e em inglês (_en).
 Usa a média SIMPLES do erro do 1º turno (a ponderada fica só no modelo/análises preliminares).
@@ -191,7 +191,7 @@ def grafico_tendencia_ps(dois, erro_comum, lang='pt'):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument('--as-of', default='2026-10-16')
+    ap.add_argument('--as-of', default='2026-10-20')
     args = ap.parse_args()
     resumo, _, vies, dois, _ = calcular(ler(DADOS), d(args.as_of))
     erro = resumo['erro_comum_simples']
