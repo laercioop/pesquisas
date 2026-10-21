@@ -25,6 +25,7 @@ Python 3.9 (Anaconda); não há testes nem lint. O usuário escreve em portuguê
 ## Estrutura
 
 ```
+index.html                     redireciona para agregador.html (raiz do GitHub Pages)
 agregador.html                 página interativa (GERADA por codigos/gerar_html.py; não editar)
 resultado.md                   resumo para leitura
 modelo_pesquisas_eleitorais_2026.zip   pacote original; intocado
