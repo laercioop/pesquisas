@@ -28,8 +28,8 @@ Python 3.9 (Anaconda); não há testes nem lint. O usuário escreve em portuguê
 index.html                     redireciona para agregador.html (raiz do GitHub Pages)
 agregador.html                 página interativa (GERADA por codigos/gerar_html.py; não editar)
 resultado.md                   resumo para leitura
-modelo_pesquisas_eleitorais_2026.zip   pacote original; intocado
 codigos/
+  modelo_pesquisas_eleitorais_2026.zip   pacote original; intocado (fora do git)
   construir_base.py            FONTE DA VERDADE dos dados -> dados/brutos/pesquisas_2026.csv
   modelo_vies.py               modelo (só biblioteca padrão) -> dados/resultados/*.csv, resultado_modelo.json
   graficos.py                  análises preliminares + tendencia(), MARCADOR, NOME_METODO
@@ -42,7 +42,7 @@ codigos/
 dados/brutos/pesquisas_2026.csv
 dados/resultados/              saídas do modelo
 dados/agregador_eleitoral_2026_auditavel.xlsx   retrato estático anterior a 16/10; nenhum script gera
-graficos/1_*.png, 2_*.png      gráficos finais; graficos/svg/ (PT, _en, _st, _st_en)
+graficos/1_*.png, 2_*.png      gráficos finais (fora do git); graficos/svg/ (PT, _en, _st, _st_en)
 graficos/analises preliminares/   gráficos antigos (o 2 e o 8 são retratos estáticos com média ponderada)
 ```
 
@@ -50,7 +50,7 @@ graficos/analises preliminares/   gráficos antigos (o 2 e o 8 são retratos est
 
 ```bash
 python construir_base.py    # regrava o CSV bruto a partir da transcrição no próprio script
-python modelo_vies.py       # recalcula dados/resultados/ (padrão: --as-of 2026-10-20 --alpha 0.5 --shrink 0.25)
+python modelo_vies.py       # recalcula dados/resultados/ (padrão: --as-of 2026-10-21 --alpha 0.5 --shrink 0.25)
 python gerar_html.py        # agregador.html na raiz
 python graficos_ps.py       # PNG finais 1 e 2 na raiz de graficos/ + SVG PT e _en em graficos/svg/
 python graficos_ps_st.py    # SVG sem título (_st, _st_en)
@@ -77,6 +77,14 @@ Opções do modelo: `--alpha` (fração do erro do 1T transferida, de 0 a 1), `-
    - em `codigos/LEIA-ME.md`, a seção "Principais resultados";
    - em `AGENTS.md`, a seção "Estado atual".
 5. **Conferir:** abra o PNG do gráfico 2 (sobreposição de rótulos) e o HTML no navegador (ver Armadilhas).
+6. **Publicar:** commit e `git push origin main`. O GitHub Pages republica sozinho em 1 a 2 minutos.
+
+## Publicação (GitHub Pages)
+
+- **Repositório:** `https://github.com/laercioop/pesquisas` (público), remoto `origin`, branch `main`. O `gh` está autenticado como `laercioop`.
+- **Página:** `https://laercioop.github.io/pesquisas/`, servida a partir da raiz do `main`. O `index.html` redireciona para o `agregador.html`.
+- **Fora do git (`.gitignore`):** `graficos/`, `*.zip`, `*.rar` e `*.7z`. Eles continuam existindo na pasta local, e o histórico antigo ainda contém `graficos/` e o zip.
+- **Autoria dos commits:** `user.name` local é `laercioop`, com o e-mail `lapachelli@gmail.com`.
 
 ## Arquitetura
 
