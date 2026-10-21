@@ -142,8 +142,7 @@ Usa só a biblioteca padrão. `calcular(data, asof, alpha, shrink, neutral, publ
 - **Outros elementos da página:**
   - indicadores no topo: tendência, com correção, erro do 1T e cenário central do modelo;
   - tabela ordenável com a rodada atual de cada instituto;
-  - tabela de cenários por alfa;
-  - notas de leitura.
+  - tabela de cenários por alfa.
 
 ## Armadilhas
 
