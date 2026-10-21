@@ -2,6 +2,7 @@
 Catálogo: https://e26.cog.ia.br/eleicoes/pesquisas?cargo=presidente
 Revisão de 16/10/2026: conferência com E26, Poder360, CNN e Brasil de Fato; +1 pesquisa (Futura BR-03764).
 Revisão de 20/10/2026: +9 pesquisas do 2º turno divulgadas de 16 a 20/10 (agregado Poder360 e Gazeta do Povo).
+Revisão de 21/10/2026: +3 pesquisas do 2º turno (Gerp, Meio/Ideia e Quaest, divulgadas em 20 e 21/10).
 Histórico suplementar: Agregador eleitoral 2026.pdf, enviado pelo usuário.
 Valores são percentuais divulgados, não extrapolações do autor deste arquivo.
 """
@@ -103,6 +104,9 @@ Nexus|2026-10-16|2026-10-18|2002|49.7|50.3|BR-04499/2026|validos|||telefone
 Futura|2026-10-16|2026-10-17|2000|49.6|50.4|BR-06715/2026|validos|||telefone
 DataTrends|2026-10-15|2026-10-17|2000|48.5|51.5|BR-04454/2026|validos|||nao_informado
 Real Time Big Data|2026-10-15|2026-10-19|2000|48|52|BR-02952/2026|validos|||telefone
+Gerp|2026-10-15|2026-10-19|2400|45|50|sem registro (Gerp 19/10)|totais|2|3|telefone
+Ideia|2026-10-15|2026-10-19|1500|46|48|BR-08251/2026|totais|3.4|2.6|telefone
+Quaest|2026-10-17|2026-10-20|2154|44|45|BR-08535/2026|totais|9|2|presencial
 '''
 
 def number(s): return float(s) if s.strip() else ''
@@ -133,7 +137,9 @@ DIVULGACAO_2T={'BR-08134/2026':'2026-10-08','BR-02949/2026':'2026-10-08','BR-096
   # Revisão de 20/10/2026 (Poder360 "a 7/6/5 dias", Gazeta do Povo).
   'BR-05187/2026':'2026-10-16','BR-00223/2026':'2026-10-17','BR-04332/2026':'2026-10-18',
   'BR-02418/2026':'2026-10-19','BR-02586/2026':'2026-10-19','BR-04499/2026':'2026-10-19',
-  'BR-06715/2026':'2026-10-19','BR-04454/2026':'2026-10-20','BR-02952/2026':'2026-10-20'}
+  'BR-06715/2026':'2026-10-19','BR-04454/2026':'2026-10-20','BR-02952/2026':'2026-10-20',
+  # Revisão de 21/10/2026 (Times Brasil, Metrópoles).
+  'sem registro (Gerp 19/10)':'2026-10-20','BR-08251/2026':'2026-10-21','BR-08535/2026':'2026-10-21'}
 for r in rows:
   if r['turno']=='2': r['data_divulgacao']=DIVULGACAO_2T.get(r['registro_tse'],'')
 assert len(set((r['turno'],r['instituto'],r['registro_tse'],r['fim_campo']) for r in rows))==len(rows)
@@ -174,6 +180,15 @@ for r in rows:
     r['observacao']='Incluída em 20/10. Válidos publicados; telefone (fixo e celular).'
   if r['turno']=='2' and r['registro_tse']=='BR-04258/2026':
     r['fonte']='https://www.poder360.com.br/poderdata/pesquisa-poderdata-aya-leia-resultados-de-lula-e-flavio-no-2o-turno/'
+  if r['turno']=='2' and r['registro_tse']=='sem registro (Gerp 19/10)':
+    r['fonte']='https://timesbrasil.com.br/eleicoes-2026/bolsonaro-lula-2-gerp-segundo-turno-votos-validos/'
+    r['observacao']='Incluída em 21/10. Tracking (média móvel de 3 dias); registro TSE não localizado nas matérias. BN = "nenhum dos dois" (2%); válidos publicados 53% Flávio x 47% Lula. Modo de coleta assumido igual às rodadas anteriores (telefone).'
+  if r['turno']=='2' and r['registro_tse']=='BR-08251/2026':
+    r['fonte']='https://www.metropoles.com/brasil/meio-ideia-flavio-tem-51-dos-votos-validos-contra-49-de-lula-no-2o-turno'
+    r['observacao']='Incluída em 21/10. Meio/Ideia; válidos publicados 51,1% Flávio x 48,9% Lula. Modo de coleta: telefone.'
+  if r['turno']=='2' and r['registro_tse']=='BR-08535/2026':
+    r['fonte']='https://www.metropoles.com/brasil/quaest-flavio-bolsonaro-tem-45-e-lula-44-no-2o-turno'
+    r['observacao']='Incluída em 21/10. Quaest/Grupo Globo; válidos não publicados na matéria (normalização dos totais).'
 fields=['turno','instituto','inicio_campo','fim_campo','data_divulgacao','amostra','lula_reportado_pct','flavio_reportado_pct','registro_tse','base_original','brancos_nulos_pct','indecisos_pct','metodo','fonte','observacao']
 with (OUT/'pesquisas_2026.csv').open('w',newline='',encoding='utf-8-sig') as h:
  w=csv.DictWriter(h,fieldnames=fields);w.writeheader();w.writerows(rows)

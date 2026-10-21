@@ -12,13 +12,14 @@ Agregador das pesquisas da eleição presidencial de 2026 (Lula x Flávio Bolson
 
 Python 3.9 (Anaconda); não há testes nem lint. O usuário escreve em português, e textos, nomes, gráficos e mensagens de commit seguem em português.
 
-## Estado atual (revisão de 20/10/2026)
+## Estado atual (revisão de 21/10/2026)
 
-- **Base:** 84 pesquisas, 46 do 1º turno e 38 do 2º. 13 institutos calibrados no 1T e 14 ativos no 2T.
+- **Base:** 87 pesquisas, 46 do 1º turno e 41 do 2º. 13 institutos calibrados no 1T e 15 ativos no 2T.
 - **Erro do 1T, na margem:** média ponderada +3,37 pp e média simples +3,45 pp.
-- **Cenários do modelo (Flávio x Lula):** alfa 0 dá 51,04 x 48,96; alfa 0,5 dá 51,89 x 48,11; alfa 1 dá 52,73 x 47,27.
-- **Tendência (gráfico 2):** Flávio 51,2 em 19/10, ou 52,9 x 47,1 com a correção de viés.
-- **Arquivos em dia com 20/10:** PNGs e SVGs finais, `agregador.html`, CSVs de `dados/resultados/`, `resultado.md` e `LEIA-ME.md`.
+- **Cenários do modelo (Flávio x Lula):** alfa 0 dá 51,01 x 48,99; alfa 0,5 dá 51,86 x 48,14; alfa 1 dá 52,70 x 47,30.
+- **Tendência (gráfico 2):** Flávio 51,4 em 20/10, ou 53,1 x 46,9 com a correção de viés.
+- **Arquivos em dia com 21/10:** `agregador.html`, CSVs de `dados/resultados/`, `resultado.md` e `LEIA-ME.md`.
+- **Arquivos parados em 20/10:** PNGs e SVGs finais (`graficos_ps.py` e `graficos_ps_st.py` não foram rodados).
 - **Arquivos parados em 16/10:** `graficos/analises preliminares/` e `dados/resultados/sensibilidade.csv`, porque o `graficos.py` não foi rodado.
 
 ## Estrutura

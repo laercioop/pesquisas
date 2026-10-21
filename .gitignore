@@ -3,3 +3,7 @@ __pycache__/
 Thumbs.db
 ~$*
 .ipynb_checkpoints/
+graficos/
+*.zip
+*.rar
+*.7z

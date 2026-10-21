@@ -92,12 +92,12 @@ Atlas com entrevistas iniciadas antes da eleição recebe desconto de
 amostra mista temporal. Percentuais de dois candidatos são normalizados para
 somarem 100%.
 
-## Principais resultados (20/10/2026, com 9 pesquisas novas de 16 a 20/10)
+## Principais resultados (21/10/2026, com Gerp, Meio/Ideia e Quaest divulgadas em 20 e 21/10)
 
 - Calibração: 13 institutos; erro comum ponderado de **+3,37 pp na margem** (média simples +3,45 pp).
-- Segundo turno, 14 institutos, sem transferir erro (`alpha=0`): **Flávio 51,04% × Lula 48,96%**.
-- Metade do erro (`alpha=0.5`): **Flávio 51,89% × Lula 48,11%**.
-- Erro integral (`alpha=1`): **Flávio 52,73% × Lula 47,27%**.
+- Segundo turno, 15 institutos, sem transferir erro (`alpha=0`): **Flávio 51,01% × Lula 48,99%**.
+- Metade do erro (`alpha=0.5`): **Flávio 51,86% × Lula 48,14%**.
+- Erro integral (`alpha=1`): **Flávio 52,70% × Lula 47,30%**.
 - Estes são **cenários condicionais**, não probabilidades de vitória. Ver `resultado.md` e `agregador.html` na raiz.
 
 ## Proveniência e limitações

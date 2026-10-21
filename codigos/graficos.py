@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Gráficos ilustrativos e tabela de sensibilidade do modelo eleitoral 2026.
 
-Uso: python graficos.py [--as-of 2026-10-20]
+Uso: python graficos.py [--as-of 2026-10-21]
 Lê dados/brutos/pesquisas_2026.csv, recalcula o modelo em memória e grava
 PNGs em graficos/ e dados/resultados/sensibilidade.csv.
 """
@@ -308,7 +308,7 @@ def sensibilidade(data, asof):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument('--as-of', default='2026-10-20')
+    ap.add_argument('--as-of', default='2026-10-21')
     args = ap.parse_args()
     SAIDA.mkdir(parents=True, exist_ok=True)
     data = ler(DADOS)

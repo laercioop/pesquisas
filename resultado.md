@@ -1,21 +1,27 @@
 # Agregador Eleitoral 2026 — resultado
 
-**Recorte:** 20/10/2026 · **Unidade:** % dos votos válidos · 2º turno em 25/10/2026 ·
+**Recorte:** 21/10/2026 · **Unidade:** % dos votos válidos · 2º turno em 25/10/2026 ·
 **Versão interativa:** [`agregador.html`](agregador.html)
 
 ## Resumo
 
-Com base em **14 institutos** e na rodada mais recente de cada um, o 2º turno está assim:
+Com base em **15 institutos** e na rodada mais recente de cada um, o 2º turno está assim:
 
 | Cenário | Flávio | Lula | Margem |
 |---|---|---|---|
-| Pesquisas como publicadas (alfa 0) | **51,0%** | **49,0%** | +2,1 pp |
-| Central: repete metade do erro do 1º turno (alfa 0,5) | **51,9%** | **48,1%** | +3,8 pp |
-| Repete todo o erro do 1º turno (alfa 1) | **52,7%** | **47,3%** | +5,5 pp |
+| Pesquisas como publicadas (alfa 0) | **51,0%** | **49,0%** | +2,0 pp |
+| Central: repete metade do erro do 1º turno (alfa 0,5) | **51,9%** | **48,1%** | +3,7 pp |
+| Repete todo o erro do 1º turno (alfa 1) | **52,7%** | **47,3%** | +5,4 pp |
 
 No 1º turno (04/10), as pesquisas subestimaram Flávio em **3,4 pp na margem** (média ponderada
 da última rodada de cada instituto; Flávio teve 47,03% e Lula 45,16% nas urnas). O modelo pergunta
 quanto desse erro se repete no 2º turno. Isso é uma **hipótese**, não uma probabilidade de vitória.
+
+**Atualização de 21/10.** Entraram 3 pesquisas: Gerp (tracking de 15 a 19/10, 53×47 nos válidos),
+Meio/Ideia (15 a 19/10, 51,1×48,9) e Quaest (17 a 20/10, 45×44 nos totais, ou 50,6×49,4 nos válidos).
+A Ideia volta ao agregado do 2º turno, que passa a ter 15 institutos. A tendência ficou em Flávio 51,4 × Lula 48,6
+em 20/10, ou 53,1 × 46,9 com a correção de viés. O cenário central do modelo segue em 51,9%. O registro TSE
+da rodada da Gerp não foi localizado nas matérias; ver `observacao` no CSV.
 
 **Atualização de 20/10.** Entraram 9 pesquisas divulgadas entre 16 e 20/10: Gerp (52×48 nos válidos),
 Ipespe (51,2×48,8), Vox Brasil (49×51, a única com Lula à frente), AtlasIntel (51,1×48,9), PoderData
