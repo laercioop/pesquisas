@@ -1,21 +1,33 @@
 # Agregador Eleitoral 2026 — resultado
 
-**Recorte:** 21/10/2026 · **Unidade:** % dos votos válidos · 2º turno em 25/10/2026 ·
+**Recorte:** 23/10/2026 · **Unidade:** % dos votos válidos · 2º turno em 25/10/2026 ·
 **Versão interativa:** [`agregador.html`](agregador.html)
 
 ## Resumo
 
-Com base em **15 institutos** e na rodada mais recente de cada um, o 2º turno está assim:
+Com base em **17 institutos** e na rodada mais recente de cada um, o 2º turno está assim:
 
 | Cenário | Flávio | Lula | Margem |
 |---|---|---|---|
-| Pesquisas como publicadas (alfa 0) | **51,0%** | **49,0%** | +2,0 pp |
-| Central: repete metade do erro do 1º turno (alfa 0,5) | **51,9%** | **48,1%** | +3,7 pp |
-| Repete todo o erro do 1º turno (alfa 1) | **52,7%** | **47,3%** | +5,4 pp |
+| Pesquisas como publicadas (alfa 0) | **50,9%** | **49,1%** | +1,8 pp |
+| Central: repete metade do erro do 1º turno (alfa 0,5) | **51,8%** | **48,2%** | +3,5 pp |
+| Repete todo o erro do 1º turno (alfa 1) | **52,6%** | **47,4%** | +5,2 pp |
 
 No 1º turno (04/10), as pesquisas subestimaram Flávio em **3,4 pp na margem** (média ponderada
 da última rodada de cada instituto; Flávio teve 47,03% e Lula 45,16% nas urnas). O modelo pergunta
 quanto desse erro se repete no 2º turno. Isso é uma **hipótese**, não uma probabilidade de vitória.
+
+**Atualização de 23/10.** Entraram 9 pesquisas divulgadas de 20 a 23/10: Alfa Inteligência,
+Veritá, Futura, Palver, Gerp, Indexa, PoderData, Datafolha e Vox Brasil. A base tem 96 pesquisas
+(46 do 1º turno e 50 do 2º) e 17 institutos ativos no agregado. A tendência em 22/10 ficou em
+Flávio 50,7 × Lula 49,3; com a correção de viés, 52,5 × 47,5. O cenário central é 51,76 × 48,24.
+Foram usados os totais quando disponíveis: Datafolha e PoderData publicam válidos arredondados
+que diferem da normalização aritmética dos totais. Campos divergentes de Gerp e Palver e o método
+não informado da Veritá estão documentados em `observacao`. A Vox foi publicada pela CNN em 23/10
+às 00h. Registros com divulgação prevista, sem resultados localizados, não foram incluídos.
+Fontes: [CNN/Vox](https://www.cnnbrasil.com.br/eleicoes/vox-lula-tem-506-dos-votos-validos-no-2o-turno-flavio-494/),
+[UOL/Datafolha](https://noticias.uol.com.br/eleicoes/2026/10/22/pesquisa-datafolha-hoje-2210-veja-numeros-de-lula-x-flavio-no-segundo-turno.ghtm)
+e links individuais no CSV e em `construir_base.py`.
 
 **Atualização de 21/10.** Entraram 3 pesquisas: Gerp (tracking de 15 a 19/10, 53×47 nos válidos),
 Meio/Ideia (15 a 19/10, 51,1×48,9) e Quaest (17 a 20/10, 45×44 nos totais, ou 50,6×49,4 nos válidos).
@@ -31,7 +43,7 @@ A tendência, que vinha convergindo para 50×50, parou de cair: Flávio 51,2 × 
 para 51,9%. Os válidos de sete delas vêm do agregado do Poder360 (totais não conferidos) e a data de
 divulgação de algumas é aproximada; ver `observacao` no CSV.
 
-Os gráficos em PNG abaixo são o retrato de 16/10. Os números atualizados estão em `agregador.html`.
+Os gráficos preliminares em PNG abaixo são o retrato de 16/10; os PNGs/SVGs finais locais seguem em 20/10. Os números atualizados estão em `agregador.html`.
 
 ## O que foi feito
 

@@ -12,13 +12,13 @@ Agregador das pesquisas da eleição presidencial de 2026 (Lula x Flávio Bolson
 
 Python 3.9 (Anaconda); não há testes nem lint. O usuário escreve em português, e textos, nomes, gráficos e mensagens de commit seguem em português.
 
-## Estado atual (revisão de 21/10/2026)
+## Estado atual (revisão de 23/10/2026)
 
-- **Base:** 87 pesquisas, 46 do 1º turno e 41 do 2º. 13 institutos calibrados no 1T e 15 ativos no 2T.
+- **Base:** 96 pesquisas, 46 do 1º turno e 50 do 2º. 13 institutos calibrados no 1T e 17 ativos no 2T.
 - **Erro do 1T, na margem:** média ponderada +3,37 pp e média simples +3,45 pp.
-- **Cenários do modelo (Flávio x Lula):** alfa 0 dá 51,01 x 48,99; alfa 0,5 dá 51,86 x 48,14; alfa 1 dá 52,70 x 47,30.
-- **Tendência (gráfico 2):** Flávio 51,4 em 20/10, ou 53,1 x 46,9 com a correção de viés.
-- **Arquivos em dia com 21/10:** `agregador.html`, CSVs de `dados/resultados/`, `resultado.md` e `LEIA-ME.md`.
+- **Cenários do modelo (Flávio x Lula):** alfa 0 dá 50,92 x 49,08; alfa 0,5 dá 51,76 x 48,24; alfa 1 dá 52,60 x 47,40.
+- **Tendência (gráfico 2):** Flávio 50,7 em 22/10, ou 52,5 x 47,5 com a correção de viés.
+- **Arquivos em dia com 23/10:** `agregador.html`, CSVs de `dados/resultados/`, `resultado.md` e `LEIA-ME.md`.
 - **Arquivos parados em 20/10:** PNGs e SVGs finais (`graficos_ps.py` e `graficos_ps_st.py` não foram rodados).
 - **Arquivos parados em 16/10:** `graficos/analises preliminares/` e `dados/resultados/sensibilidade.csv`, porque o `graficos.py` não foi rodado.
 
@@ -50,7 +50,7 @@ graficos/analises preliminares/   gráficos antigos (o 2 e o 8 são retratos est
 
 ```bash
 python construir_base.py    # regrava o CSV bruto a partir da transcrição no próprio script
-python modelo_vies.py       # recalcula dados/resultados/ (padrão: --as-of 2026-10-21 --alpha 0.5 --shrink 0.25)
+python modelo_vies.py       # recalcula dados/resultados/ (padrão: --as-of 2026-10-23 --alpha 0.5 --shrink 0.25)
 python gerar_html.py        # agregador.html na raiz
 python graficos_ps.py       # PNG finais 1 e 2 na raiz de graficos/ + SVG PT e _en em graficos/svg/
 python graficos_ps_st.py    # SVG sem título (_st, _st_en)

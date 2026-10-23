@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Página interativa com os gráficos finais 1 e 2 (agregador.html, na raiz do projeto).
 
-Uso: python gerar_html.py [--as-of 2026-10-21]
+Uso: python gerar_html.py [--as-of 2026-10-23]
 Recalcula o modelo e a tendência em memória e injeta os dados (JSON) no molde
 html_molde.html, que desenha os gráficos em SVG com JavaScript puro, sem dependências.
 Mesmos cálculos de graficos_ps.py: média SIMPLES do erro do 1º turno.
@@ -77,7 +77,7 @@ def montar(as_of):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument('--as-of', default='2026-10-21')
+    ap.add_argument('--as-of', default='2026-10-23')
     args = ap.parse_args()
     dados = montar(args.as_of)
     html = MOLDE.read_text(encoding='utf-8')

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Modelo auditável de erros do 1º turno e cenários do 2º turno de 2026.
 
-Uso: python modelo_vies.py --alpha 0.50 --shrink 0.25 --as-of 2026-10-21
+Uso: python modelo_vies.py --alpha 0.50 --shrink 0.25 --as-of 2026-10-23
 Sem dependências externas. As hipóteses estão explícitas e podem ser modificadas.
 Este modelo não estima probabilidades confiáveis de vitória.
 """
@@ -177,7 +177,7 @@ def calcular(data,asof,alpha=.5,shrink=.25,neutral=False,publicados=False):
 def main():
     ap=argparse.ArgumentParser(description='Viés de pesquisas, primeiro para segundo turno 2026')
     ap.add_argument('--dados',type=Path,default=PASTA_PROJETO/'dados'/'brutos'/'pesquisas_2026.csv')
-    ap.add_argument('--as-of',default='2026-10-21',help='AAAA-MM-DD, recorte sem lookahead')
+    ap.add_argument('--as-of',default='2026-10-23',help='AAAA-MM-DD, recorte sem lookahead')
     ap.add_argument('--alpha',type=float,default=0.50,help='fração do erro transferida do 1º para o 2º turno; 0 a 1')
     ap.add_argument('--shrink',type=float,default=0.25,help='fração preservada da diferença particular do instituto em relação ao erro comum')
     ap.add_argument('--metodo-neutro',action='store_true',help='desativa penalizações por método de coleta')

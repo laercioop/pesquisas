@@ -3,6 +3,7 @@ Catálogo: https://e26.cog.ia.br/eleicoes/pesquisas?cargo=presidente
 Revisão de 16/10/2026: conferência com E26, Poder360, CNN e Brasil de Fato; +1 pesquisa (Futura BR-03764).
 Revisão de 20/10/2026: +9 pesquisas do 2º turno divulgadas de 16 a 20/10 (agregado Poder360 e Gazeta do Povo).
 Revisão de 21/10/2026: +3 pesquisas do 2º turno (Gerp, Meio/Ideia e Quaest, divulgadas em 20 e 21/10).
+Revisão de 23/10/2026: +9 pesquisas divulgadas de 20 a 23/10; fontes e divergências nas observações.
 Histórico suplementar: Agregador eleitoral 2026.pdf, enviado pelo usuário.
 Valores são percentuais divulgados, não extrapolações do autor deste arquivo.
 """
@@ -62,7 +63,7 @@ Palver|2026-09-30|2026-10-03|5000|43|47|BR-00198/2026|totais|||online
 Datafolha|2026-10-03|2026-10-03|4006|42|40|BR-01708/2026|totais|4|3|presencial
 Quaest|2026-10-02|2026-10-03|3702|40|38|BR-02197/2026|totais|10|3|presencial
 '''
-# Segundo turno: pesquisas do acervo público e novas divulgações até 20/10.
+# Segundo turno: pesquisas do acervo público e novas divulgações até 23/10.
 # Evita linhas duplicadas com a mesma combinação instituto/registro, inclusive revisões do chat.
 # método poderá ser desconhecido; não se infere precisão estatística da amostra digital.
 DATA_2T='''
@@ -107,6 +108,15 @@ Real Time Big Data|2026-10-15|2026-10-19|2000|48|52|BR-02952/2026|validos|||tele
 Gerp|2026-10-15|2026-10-19|2400|45|50|sem registro (Gerp 19/10)|totais|2|3|telefone
 Ideia|2026-10-15|2026-10-19|1500|46|48|BR-08251/2026|totais|3.4|2.6|telefone
 Quaest|2026-10-17|2026-10-20|2154|44|45|BR-08535/2026|totais|9|2|presencial
+Alfa Inteligência|2026-10-15|2026-10-19|2700|45.9|48.8|BR-00820/2026|totais|3.5|1.8|presencial
+Veritá|2026-10-15|2026-10-19|15554|49.3|50.7|BR-06396/2026|validos|||nao_informado
+Futura|2026-10-19|2026-10-20|2000|46.8|48.9|BR-06614/2026|totais|2|2.3|telefone
+Palver|2026-10-18|2026-10-20|5000|48|50|BR-04612/2026|totais|1|0|online
+Gerp|2026-10-19|2026-10-21|2400|45|50|BR-03835/2026|totais|2|2|telefone
+Indexa|2026-10-20|2026-10-21|2000|44.1|45.2|BR-02348/2026|totais|4.3|1.6|telefone
+PoderData|2026-10-19|2026-10-21|4000|48|49|BR-07926/2026|totais|3|1|telefone
+Datafolha|2026-10-20|2026-10-22|2520|46|47|BR-09709/2026|totais|5|2|presencial
+Vox Brasil|2026-10-20|2026-10-22|2100|50.6|49.4|BR-03259/2026|validos|||presencial
 '''
 
 def number(s): return float(s) if s.strip() else ''
@@ -140,6 +150,46 @@ DIVULGACAO_2T={'BR-08134/2026':'2026-10-08','BR-02949/2026':'2026-10-08','BR-096
   'BR-06715/2026':'2026-10-19','BR-04454/2026':'2026-10-20','BR-02952/2026':'2026-10-20',
   # Revisão de 21/10/2026 (Times Brasil, Metrópoles).
   'sem registro (Gerp 19/10)':'2026-10-20','BR-08251/2026':'2026-10-21','BR-08535/2026':'2026-10-21'}
+NOVAS_23 = {'BR-00820/2026': ('2026-10-20',
+                   'https://exame.com/brasil/pesquisa-para-presidente-alfa-flavio-bolsonaro-tem-515-e-lula-485-no-2o-turno/',
+                   'Totais conferidos na Exame; método presencial conforme ficha do relatório reproduzida em '
+                   'pesquisaeleitoral.com.br. Sem calibração própria no acervo do 1T.'),
+ 'BR-06396/2026': ('2026-10-21',
+                   'https://www.cnnbrasil.com.br/eleicoes/verita-flavio-tem-507-dos-votos-validos-no-2o-turno-lula-493/',
+                   'Válidos publicados na CNN; método não informado na matéria. Sem calibração própria no '
+                   'acervo do 1T.'),
+ 'BR-06614/2026': ('2026-10-21',
+                   'https://exame.com/brasil/pesquisa-futura-flavio-bolsonaro-tem-511-e-lula-489-no-2o-turno/',
+                   'Totais e ficha técnica conferidos na Exame; válidos publicados 51,1% Flávio x 48,9% '
+                   'Lula.'),
+ 'BR-04612/2026': ('2026-10-21',
+                   'https://noticias.uol.com.br/eleicoes/2026/10/22/nova-pesquisa-poderdata-para-presidente-2026-veja-resultados-do-2-turno.ghtm',
+                   'Totais, amostra e campo conferidos no UOL; E26 indica início em 16/10, matéria informa '
+                   '18/10. Soma 99% por arredondamento, sem completar resíduos.'),
+ 'BR-03835/2026': ('2026-10-21',
+                   'https://gerp.com.br/relatorios/20261021%20Relat%C3%B3rio%20Presid%C3%AAncia%202026%202%C2%BA%20Turno%20-%20DIVULGA%C3%87%C3%83O.pdf',
+                   'Relatório original: campo 19-21/10, diferente do E26/TSE (17-20/10); adotado campo '
+                   'efetivo. Válidos publicados 53% Flávio x 47% Lula. Distinta da cobertura sem registro de '
+                   '20/10; só a última rodada entra no agregado.'),
+ 'BR-02348/2026': ('2026-10-22',
+                   'https://www.correiobraziliense.com.br/politica/2026/10/7525573-flavio-tem-452-e-lula-441-das-intencoes-de-voto-diz-pesquisa-indexa.html',
+                   'Totais conferidos no Correio/Agência Estado; não pretende votar 4,8% separado de BN 4,3% '
+                   'e NS 1,6%. Válidos publicados 50,6% Flávio x 49,4% Lula.'),
+ 'BR-07926/2026': ('2026-10-22',
+                   'https://sbtnews.sbt.com.br/noticia/eleicoes/poder-data-aya-flavio-tem-51-dos-votos-validos-lula-49',
+                   'Totais conferidos no SBT News; soma 101% por arredondamento. Válidos publicados 51% '
+                   'Flávio x 49% Lula; modelo mantém normalização dos totais.'),
+ 'BR-09709/2026': ('2026-10-22',
+                   'https://noticias.uol.com.br/eleicoes/2026/10/22/pesquisa-datafolha-hoje-2210-veja-numeros-de-lula-x-flavio-no-segundo-turno.ghtm',
+                   'Totais conferidos no UOL; válidos publicados 50% x 50%, diferentes da normalização dos '
+                   'totais arredondados usada pelo modelo. Amostra 2.520 e registro confirmados na Folha e '
+                   'E26.'),
+ 'BR-03259/2026': ('2026-10-23',
+                   'https://www.cnnbrasil.com.br/eleicoes/vox-lula-tem-506-dos-votos-validos-no-2o-turno-flavio-494/',
+                   'Vox Radar/Vox Brasil: identidade e campo confirmados por registro E26. Válidos da CNN '
+                   'publicada em 23/10 às 00h; corpo menciona sexta-feira (22), erro de data. Método '
+                   'assumido igual às rodadas anteriores (presencial).')}
+DIVULGACAO_2T.update({reg: info[0] for reg, info in NOVAS_23.items()})
 for r in rows:
   if r['turno']=='2': r['data_divulgacao']=DIVULGACAO_2T.get(r['registro_tse'],'')
 assert len(set((r['turno'],r['instituto'],r['registro_tse'],r['fim_campo']) for r in rows))==len(rows)
@@ -189,6 +239,10 @@ for r in rows:
   if r['turno']=='2' and r['registro_tse']=='BR-08535/2026':
     r['fonte']='https://www.metropoles.com/brasil/quaest-flavio-bolsonaro-tem-45-e-lula-44-no-2o-turno'
     r['observacao']='Incluída em 21/10. Quaest/Grupo Globo; válidos não publicados na matéria (normalização dos totais).'
+for r in rows:
+  if r['turno']=='2' and r['registro_tse'] in NOVAS_23:
+    _, r['fonte'], nota = NOVAS_23[r['registro_tse']]
+    r['observacao'] = 'Incluída em 23/10. ' + nota
 fields=['turno','instituto','inicio_campo','fim_campo','data_divulgacao','amostra','lula_reportado_pct','flavio_reportado_pct','registro_tse','base_original','brancos_nulos_pct','indecisos_pct','metodo','fonte','observacao']
 with (OUT/'pesquisas_2026.csv').open('w',newline='',encoding='utf-8-sig') as h:
  w=csv.DictWriter(h,fieldnames=fields);w.writeheader();w.writerows(rows)

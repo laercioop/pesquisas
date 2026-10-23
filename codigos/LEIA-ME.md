@@ -1,6 +1,6 @@
 # Agregador Eleitoral 2026 — acervo local e modelo auditável
 
-**Data de corte:** 16 de outubro de 2026. **Unidade:** votos percentuais válidos,
+**Data de corte:** 23 de outubro de 2026. **Unidade:** votos percentuais válidos,
 salvo quando especificado `totais`. O arquivo `dados/brutos/pesquisas_2026.csv` é o banco primário
 editável; não depende de uma conversa do ChatGPT.
 
@@ -11,7 +11,7 @@ agregador de pesquisas/
 ├── resultado.md                       resumo do que foi feito e dos resultados
 ├── modelo_pesquisas_eleitorais_2026.zip   pacote original (versão de 16/10, antes da revisão)
 ├── dados/
-│   ├── brutos/pesquisas_2026.csv      banco primário editável (75 pesquisas: 46 do 1T, 29 do 2T)
+│   ├── brutos/pesquisas_2026.csv      banco primário editável (96 pesquisas: 46 do 1T, 50 do 2T)
 │   ├── resultados/                    saídas geradas pelos scripts
 │   │   ├── primeiro_turno_calculado.csv   normalização e erro de cada pesquisa do 1T
 │   │   ├── vies_institutos.csv            erro da última rodada de cada instituto e efeito encolhido
@@ -34,7 +34,7 @@ Python 3; `graficos.py` precisa de matplotlib. Dentro de `codigos/`:
 
 ```bash
 python construir_base.py          # só se alterar a transcrição; regrava o CSV bruto
-python modelo_vies.py             # padrão: --as-of 2026-10-20 --alpha 0.5 --shrink 0.25
+python modelo_vies.py             # padrão: --as-of 2026-10-23 --alpha 0.5 --shrink 0.25
 python graficos.py                # PNGs em ../graficos e sensibilidade.csv
 ```
 
@@ -50,7 +50,7 @@ python modelo_vies.py --as-of 2026-10-15     # recorte por data de DIVULGAÇÃO 
 
 Os scripts regravam os arquivos de `dados/resultados/` e não alteram o CSV bruto
 (exceto `construir_base.py`, que o gera). Para incluir pesquisas novas, acrescente
-a linha em `construir_base.py` (ou direto no CSV) e rode os scripts (`construir_base.py`, `modelo_vies.py`, `gerar_html.py`).
+a linha em `construir_base.py` (fonte da verdade; o CSV é regravado) e rode os scripts (`construir_base.py`, `modelo_vies.py`, `gerar_html.py`).
 
 **Excel:** é um retrato estático. `Painel!B7` (alfa) recalcula B11, B13 e B14
 (agregado com viés); a aba `Cenarios` usa alfas fixos e não depende de B7. As
@@ -92,12 +92,12 @@ Atlas com entrevistas iniciadas antes da eleição recebe desconto de
 amostra mista temporal. Percentuais de dois candidatos são normalizados para
 somarem 100%.
 
-## Principais resultados (21/10/2026, com Gerp, Meio/Ideia e Quaest divulgadas em 20 e 21/10)
+## Principais resultados (23/10/2026, com 9 pesquisas adicionais divulgadas de 20 a 23/10)
 
 - Calibração: 13 institutos; erro comum ponderado de **+3,37 pp na margem** (média simples +3,45 pp).
-- Segundo turno, 15 institutos, sem transferir erro (`alpha=0`): **Flávio 51,01% × Lula 48,99%**.
-- Metade do erro (`alpha=0.5`): **Flávio 51,86% × Lula 48,14%**.
-- Erro integral (`alpha=1`): **Flávio 52,70% × Lula 47,30%**.
+- Segundo turno, 17 institutos, sem transferir erro (`alpha=0`): **Flávio 50,92% × Lula 49,08%**.
+- Metade do erro (`alpha=0.5`): **Flávio 51,76% × Lula 48,24%**.
+- Erro integral (`alpha=1`): **Flávio 52,60% × Lula 47,40%**.
 - Estes são **cenários condicionais**, não probabilidades de vitória. Ver `resultado.md` e `agregador.html` na raiz.
 
 ## Proveniência e limitações
